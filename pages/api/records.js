@@ -2,6 +2,7 @@
 import {sendMethodNotAllowed, sendOk,} from '@/js/utils/apiMethods.js';
 import {getCollection} from "@/js/utils/functions";
 import {ObjectId,} from 'mongodb';
+
 const COLLECTION_NAME = 'records';
 
 const getRecords = async () => {
@@ -34,7 +35,8 @@ const deleteRecord = async (id) => {
 export default async function handler(req, res) {
 
 	const isAllowedMethod = req.method === 'GET' || req.method === 'POST' || req.method === 'PUT' || req.method === 'DELETE';
-	if(!isAllowedMethod) {
+	
+    if(!isAllowedMethod) {
 		return sendMethodNotAllowed(res);
 	}
 
