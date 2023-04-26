@@ -2,9 +2,12 @@
 export default function InsertPage() {
 	const insertRecord = (event) => {
 		event.preventDefault();
-		const title = document.getElementById("title").value;
-		const description = document.getElementById("description").value;
-		const data = {title, description};
+		const artist = document.getElementById("artist").value;
+		const album = document.getElementById("album").value;
+        const release_year = document.getElementById("release_year").value;
+        const nationality = document.getElementById("nationality").value;
+        const ww_sales = document.getElementById("ww_sales").value;
+		const data = {artist, album, release_year, nationality, ww_sales};
 		fetch("/api/records", {
 			method: "POST",
 			headers: {
@@ -13,8 +16,11 @@ export default function InsertPage() {
 			body: JSON.stringify(data),
 		}).then(() => {
 			console.log("New record inserted");
-			document.getElementById("title").value = "";
-			document.getElementById("description").value = "";
+			document.getElementById("artist").value = "";
+			document.getElementById("album").value = "";
+            document.getElementById("release_year").value = "";
+            document.getElementById("nationality").value = "";
+            document.getElementById("ww_sales").value = "";
 		});
 	}
 
@@ -25,33 +31,33 @@ export default function InsertPage() {
 				<p className="w-[1500px] mx-auto text-center mt-4 text-3xl">This is an app that showcases best-selling albums of the 21st century according to Wikipedia</p>
 				<form>
 					<div className="mb-6">
-						<label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert artist</label>
-						<input type="text" id="title"
+						<label htmlFor="artist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert artist</label>
+						<input type="text" id="artist"
 						       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						       placeholder="Adele"  required/>
 					</div>
 					<div className="mb-6">
-						<label htmlFor="description"
+						<label htmlFor="album"
 						       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert album title</label>
-						<textarea id="description"
+						<textarea id="album"
 						       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						       placeholder="21" required/>
 					</div>
                     <div className="mb-6">
-						<label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert the release year</label>
-						<input type="text" id="title"
+						<label htmlFor="release_year" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert the release year</label>
+						<input type="text" id="release_year"
 						       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						       placeholder="2011" required/>
 					</div>
                     <div className="mb-6">
-						<label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert nationality</label>
-						<input type="text" id="title"
+						<label htmlFor="nationality" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert nationality</label>
+						<input type="text" id="nationality"
 						       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						       placeholder="UK" required/>
 					</div>
                     <div className="mb-6">
-						<label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert no. of worldwide sales</label>
-						<input type="text" id="title"
+						<label htmlFor="ww_sales" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Insert no. of worldwide sales</label>
+						<input type="text" id="ww_sales"
 						       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						       placeholder="31000000" required/>
 					</div>
