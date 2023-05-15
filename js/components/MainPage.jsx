@@ -37,34 +37,39 @@ export default function MainPage() {
 	return (
 		<section className="bg-white dark:bg-gray-900">
 			<div className="container px-6 py-10 mx-auto">
-				<h1 className="w-[1500px] mx-auto text-center text-6xl">Best-selling albums of the 21st century</h1>
-				<p className="w-[1500px] mx-auto text-center mt-4 text-3xl">This is an app that showcases best-selling albums of the 21st century according to Wikipedia</p>
+				<h1 className="italic underline w-[1500px] mx-auto text-center text-6xl text-fuchsia-950">Best-selling albums of the 21st century</h1>
+				<p className="italic w-[1500px] mx-auto text-center mt-4 text-3xl text-fuchsia-700">This is an app that showcases best-selling albums of the 21st century according to Wikipedia</p>
 
-				<div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+				<div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2">
 					{records.map(record => (
 						<div
 							key={record._id}
 							className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-							<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+							<h5 className="text-center underline mb-2 text-2xl font-bold tracking-tight text-fuchsia-950 dark:text-white">
 								{record.album}
 							</h5>
-							<p className="font-normal text-gray-700 dark:text-gray-400">
-								Artist/s: {record.artist}
+							<div className="mt-4">
+								<a href={record.album_cover} target="_blank" rel="noopener noreferrer">
+									<img src={record.album_cover}alt="Album Cover" lassName="max-w-full h-auto" />
+								</a>
+							</div>
+							<p className="text-center font-normal text-fuchsia-700 dark:text-fuchsia-950">
+								<b>Artist/s:</b> {record.artist}
 							</p>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-								Release year: {record.release_year}
+                            <p className="text-center font-normal text-fuchsia-700 dark:text-fuchsia-950">
+								<b>Release year:</b> {record.release_year}
 							</p>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-								Nationality: {record.nationality}
+                            <p className="text-center font-normal text-fuchsia-700 dark:text-fuchsia-950">
+								<b>Nationality:</b> {record.nationality}
 							</p>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-								Worldwide sales: {record.ww_sales}
+                            <p className="text-center font-normal text-fuchsia-700 dark:text-fuchsia-950">
+								<b>Worldwide sales:</b> {record.ww_sales}
 							</p>
 							<div className={"flex justify-center mt-4"}>
 								<button type="button"
 								        id={record._id}
 								        onClick={deleteRecord}
-								        className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete
+								        className="focus:outline-none text-white bg-fuchsia-950 hover:bg-pink-900 focus:ring-4 focus:ring-pink-900 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-pink-700 dark:focus:ring-pink-900">Delete
 								</button>
 							</div>
 						</div>
