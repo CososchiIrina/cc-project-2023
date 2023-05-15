@@ -77,7 +77,7 @@ function ChatComponent(props) {
 			<div className={"border border-b-0 rounded-lg border-gray-300'"}>
 				<div className={'border-b text-center px-[20px] py-[10px]'}>
 					<span className={'text-md font-bold text-gray-900'}>
-						This a chat component called ChatGPT!
+						This is a chat component called ChatGPT!
 					</span>
 				</div>
 				<MessageBox chatMessages={chatMessages}/>
